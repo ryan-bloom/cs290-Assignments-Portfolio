@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div{
+	background-color:darkgrey;
+}
+
+.title{
+	text-align: center;
+}
+
+ul{
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+}
+
+#NZ_Pic{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#art_of_flight_vid{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.my_art{
+	margin-left: inherit;
+	margin-right: inherit;
+}
