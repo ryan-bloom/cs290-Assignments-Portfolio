@@ -106,7 +106,7 @@ div .explanation{
 	display: block;
 	width: 350px;
 	height: 378px;
-	margin-left: 80px;
+	margin-left: 100px;
 	color: aliceblue;
 	background: rgba(93,93,93,0.70);
 	background-size: contain;
@@ -123,7 +123,7 @@ div .participation{
 	display: block;
 	width: 350px;
 	height: 585px;
-	margin-left: 500px;
+	margin-left: 520px;
 	margin-top: -392px;
 	background: rgba(93,93,93,0.70);
 }
@@ -140,7 +140,7 @@ div .benefits{
 	display: block;
 	width: 350px;
 	height: 185px;
-	margin-left: 80px;
+	margin-left: 100px;
 	margin-top: -200px;
 	background: rgba(93,93,93,0.70);
 }
@@ -209,6 +209,7 @@ div .zen-resources li{
 div .wrapper{
 	display: block;
 	margin-top: -15px;
+	margin-left: -30px;
 }
 
 footer{
