@@ -1,10 +1,7 @@
-# portfolio
+# csszen README - Ryan Bloom
 
-This repository will be used for ALL your CompSci 290 assignments, thus it will serve as a portfolio of all of your work in this course.
+For the first zen web-page, I attempted to create a colder feeling, using background images that are dominated with blues and whites.  Additionally, I moved the sidebar to the bottom of the page as opposed to off to the side.  Furthermore, I tried to differentiate each section by adding a background color behind the writing.  Finally, I changed the fonts, colors, and sizes of the text so that each section fit nicely inside its background box, and I moved each div box around to format the page in a unique way. 
 
-ALL of your assignments (not lab) must be clearly linked to from this site so the course staff can track your progress throughout the course.
+For the second zen web-page, I attempted to create a warmer feeling, using the sunset as the background image, which is dominated with reds, oranges, and yellows.  Additionally, I restricted the image to appear only behind the introduction, while the remainder of the page has a white background.  Then, instead of placing the sidebar with all of the links below the text, I moved them to the left and shifted some of the text over using the block display method.  Finally, I edited fonts, colors, and sizes, and moved the footer to the bottom right of the website.  
 
-You will be graded on what is in the master branch of THIS repository at end of the day the project is due. You are responsible for ensuring that all files are correctly pushed to this repository by then.
-
-Each assignment should be done in a separate folder, with its own README file, so it is clear what has been updated for each assignment.
-
+Overall, I spent about two hours on this project and learned a lot about css while doing so.
