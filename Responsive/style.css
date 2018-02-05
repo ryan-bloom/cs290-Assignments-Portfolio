@@ -1,0 +1,61 @@
+
+@media only screen and (max-width: 991px){
+	body {
+    background-color: #abcdef;
+	}
+	.logo-box{
+		width: 100%;
+	}
+	.site-logo{
+		width: 100%;
+		padding-bottom: 9px;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	body{
+		background-color: antiquewhite;
+	}
+	.logo-box{
+		width: 20%;
+		display: block;
+		margin: auto;
+	}
+	.site-logo{
+		width: 100%;
+		padding-bottom: 9px;
+	}
+	.site-title{
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	body{
+		background-color: darkseagreen;
+	}
+}
+
+.site-footer{
+	display: block;
+	text-align: center;
+}
+
+.site-footer ul{
+	list-style: none;
+}
+
+.site-copyright{
+	text-align: right;
+}
+
+.navbar-light{
+	background-color: gray;
+	text-align: center;
+}
+
+.navbar a{
+	padding: 5%;
+	color: aliceblue;
+	text-align: center;
+}
