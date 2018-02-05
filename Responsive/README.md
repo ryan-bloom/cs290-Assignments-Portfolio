@@ -1,2 +1,11 @@
-# assign_responsive
-An example HTML file of data to be styled responsively using Bootstrap
+# assign_responsive - Ryan Bloom README
+
+For this assignment, I created three different layouts for webpages of size xs, sm, and md.  I started with the stripped version of the example nature webpage that was provided, and then added various classes, containers, and css code in order to make the webpage responsive to changing sizes.  Additionally, I edited the nav-bar so that it appeared at the top of the page for all page sizes. 
+
+For my extra-small (xs) webpage, I took away all of the text that was written describing each image.  I felt that the smaller screen size played nicely to fewer words being present.  Then, I made each image take up all 12 bootstrap columns, and they are followed by their captions.  Since each image took up all 12 columns, the images were stacked one on top of the other as opposed to side by side for the xs webpage.  Furthermore, I wrote a media query for the xs webpage, making the background color a beige color, and organizing the title and logo so that they were both centered at the top of the page.
+
+Then, I added classes for the small (sm) sized webpage.  For this size, I wanted the text to reappear, and the images to not take up all 12 columns.  Instead, I wanted the images to appear to the right of the captions and text, which would wrap under the images if there was enough text to display.  Although my sm page still displayed each image and its description one on top of the other, it appeared vastly different from the xs page since the image no longer took up all 12 columns, and there were far more words on the page.  Additionally, I added a media query to change the location and size of the title and logo, as well as to change the background color to a light blue.  
+
+Finally, I added classes and code to create my medium (md) sized webpage.  For this webpage, I wanted to fit three pictures and descriptions per row.  Since there were 12 pictures and descriptions total, this layout fit nicely into 4 rows of 3.  Therefore, each image took up 4 of the 12 columns available.  By adding a "row" div box around sets of 3 images and descriptions, I was able to create the equal sized rows that I wanted.  Additionally, I created a media query to change the background color to green and to rearrange and re-size the logo and title.  
+
+This assignment taught me a lot about how to work with and use bootstrap, and how powerful of a tool it really is.  It allowed me to create a responsive webpage with equal spacing relatively easily.  I spent approximately 3-4 hours working on this assignment.      

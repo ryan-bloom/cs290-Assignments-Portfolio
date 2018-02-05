@@ -34,6 +34,20 @@
 	body{
 		background-color: darkseagreen;
 	}
+	.logo-box{
+		width: 100%;
+		display: block;
+		margin:auto;
+	}
+	
+	.site-title{
+		text-decoration: underline;
+		margin-left: 0%;
+		text-align: center;
+	}
+	.entry-content{
+		height: 60%;
+	}
 }
 
 .site-footer{
