@@ -114,8 +114,9 @@ function draw(){
     }
     else{
       alert("GAME OVER, YOU LOST!");
+      x = canvas.width / 2;
+      y = ball_size-10;
       document.location.reload();
-      //window.location.href = window.location.href;
     }
   }
   if(x + dx < 0 || x + dx + ball_size - 5> canvas.width){
