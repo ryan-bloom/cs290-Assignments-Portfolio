@@ -113,9 +113,9 @@ function draw(){
       }
     }
     else{
-      alert("GAME OVER, YOU LOST!");
       x = canvas.width / 2;
       y = ball_size-10;
+      alert("GAME OVER, YOU LOST!");
       document.location.reload();
     }
   }
