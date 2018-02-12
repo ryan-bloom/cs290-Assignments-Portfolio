@@ -38,6 +38,7 @@ canvas{
   position: absolute;
   margin-top: -300px;
   width: 250px;
+  padding-bottom: 50px;
 }
 
 #wide_head:focus{
