@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Ryan Bloom">
+    <!-- stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- support for this page -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="keep_it_up.js" async></script>
+    <title>JavaScript Keep It Up</title>
+</head>
+
+<body>
+  <h1>Keep It Up!</h1>
+    <canvas id="gameCanvas" width= "600" height="350"></canvas>
+    <div id = "disappear">
+      <p class="start"><input type="button" value = "START" id="start_button" onclick="draw()"></p>
+    </div>
+  <div class="Lev_Select">
+    <h3>Select Your Level!</h3>
+    <select name="Level_select" id="level_menu" onchange="level_selection()">
+      <option value = 10 id="level_1">Level 1: 10 Juggles</option>
+      <option value = 25 id="level_2">Level 2: 25 Juggles</option>
+      <option value = 50 id="level_3">Level 3: 50 Juggles</option>
+      <option value = 100 id="level_4">Level 4: 100 Juggles</option>
+    </select>
+  </div>
+  <div class="cheat">
+    <h3>Cheat Keys:</h3>
+    <p>Click here to make your character have a wider head and cover more area so you
+    don't miss the ball!</p>
+    <input type="button" value="Big Head!" id="wide_head" onclick="width_selector()">
+  </br></br>
+    <p>Click here to make your character shorter and get more time to get your
+      head under the ball before you lose!</p>
+    <input type="button" value="Short Guy!" id="short_guy" onclick="height_selector()">
+  </br></br>
+    <p>Click here to make your character faster so you can cover more ground!</p>
+    <input type="button" value="Speedy!" id="speedster" onclick="speedup()">
+  </div>
+  <div class = "advertisement">
+    <h2>Can you help Johnny keep it up!?!?!?</h2>
+    <img id="player" src="game_images/boy_player.png">
+    <h3>How many juggles can you get? Put your soccer skills to the test!</h3>
+  </div>
+  <div class="directions">
+    <h3>How to Play:</h3>
+    <ul class = "dirs">
+      <li>First select which level you wish to play from the
+      dropdown menu found to the left of the game window. The higher the leve,
+      the more juggles are needed to win!</li>
+      <li>Then, click the "Start" button.  Your character and a soccer ball will
+      appear on the screen moments later.</li>
+      <li>Use the left and right arrow keys to move your player under the bouncing soccer ball
+      in order to use your character's head to keep the ball up!</li>
+      <li>Be careful not to let the ball drop below your player's head!</li>
+      <li>Head the ball as many times as is required based on your level selection in order to win!</li>
+    </ul>
+  </div>
+  <hr></hr>
+  <div class="footer">
+    <p>All images (soccer ball, canvas background, player character) found from google images searches</p>
+  </div>
+</body>

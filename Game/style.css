@@ -1,0 +1,69 @@
+body {
+  background-color: #FFEBCD;
+}
+
+h1{
+  text-align: center;
+  font-family: fantasy;
+  text-decoration: underline;
+}
+
+canvas{
+  background: url(game_images/soccer_background.jpeg);
+  background-size: 600px 350px;
+  display: block;
+  margin: auto;
+}
+
+.Lev_Select{
+  display: block;
+  margin-top: -390px;
+  position: absolute;
+}
+
+#level_menu:hover{
+  cursor: pointer;
+}
+
+.advertisement{
+  display: block;
+  margin-left: 900px;;
+  margin-top: -450px;
+}
+
+.cheat{
+  display: block;
+  position: absolute;
+  margin-top: -300px;
+  width: 250px;
+}
+
+#player{
+  width: 230px;
+}
+
+.start{
+  display: block;
+  z-index: 2;
+  margin-left:470px;
+  margin-top: -230px;
+  position: absolute;
+}
+
+#start_button:hover{
+  cursor: pointer;
+}
+
+#start_button{
+  width: 200px;
+  height: 50px;
+}
+
+.directions{
+  display: block;
+  margin-top: 50px;
+}
+
+.footer p{
+  text-align: center;
+}
