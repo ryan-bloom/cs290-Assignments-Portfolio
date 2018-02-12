@@ -124,7 +124,7 @@ function draw(){
   else if (y + dy + ball_size - 5> canvas.height - player_height) {
     if(x+ball_size >= player_x && x-ball_size <= player_x + player_width){
       grav_speed = -(grav_speed * bounce);
-      dx = dx + 0.15*(x-player_x);
+      dx = dx + 0.15*(x-(player_x+(player_width/2)));
       //dy = -dy;
       juggles_needed -= 1;
       if(juggles_needed === 0){
