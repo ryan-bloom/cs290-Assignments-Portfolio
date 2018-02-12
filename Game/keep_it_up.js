@@ -44,15 +44,35 @@ var bounce = 0.6;
 var player_Img = loadImage('game_images/boy_player.JPG');
 var player_width = 70;
 function width_selector(){
-  player_width = 140;
+  var cb = document.getElementById('wide_head').checked;
+  if (cb) {
+    player_width = 140;
+  }
+  else{
+    player_width = 70;
+  }
 }
+
 var player_height = 150;
 function height_selector(){
-  player_height = 90;
+  var cb = document.getElementById('short_guy').checked;
+  if(cb){
+    player_height = 90;
+  }
+  else{
+    player_height = 150;
+  }
 }
+
 var player_speed = 8;
 function speedup(){
-  player_speed = 15;
+  var cb = document.getElementById('speedster').checked;
+  if(cb){
+    player_speed = 18;
+  }
+  else{
+    player_speed = 8;
+  }
 }
 var player_x = (canvas.width - player_width) / 2;
 
@@ -104,7 +124,7 @@ function draw(){
   else if (y + dy + ball_size - 5> canvas.height - player_height) {
     if(x+ball_size >= player_x && x-ball_size <= player_x + player_width){
       grav_speed = -(grav_speed * bounce);
-      dx = dx + 0.1*(x-player_x);
+      dx = dx + 0.15*(x-player_x);
       //dy = -dy;
       juggles_needed -= 1;
       if(juggles_needed == 0){

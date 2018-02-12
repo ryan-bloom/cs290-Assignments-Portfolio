@@ -31,16 +31,17 @@
   </div>
   <div class="cheat">
     <h3>Cheat Keys:</h3>
-    <p>Click here to make your character have a wider head and cover more area so you
+    <p>Check the box below to make your character's head wider to cover more area so you
     don't miss the ball!</p>
-    <input type="button" value="Big Head!" id="wide_head" onclick="width_selector()">
+    <!--<input type="button" value="Big Head!" id="wide_head" onclick="width_selector()">-->
+    <input type="checkbox" value="Big Head!" id="wide_head" onchange="width_selector()">
   </br></br>
-    <p>Click here to make your character shorter and get more time to get your
+    <p>Check the box below to make your character shorter to get more time to get your
       head under the ball before you lose!</p>
-    <input type="button" value="Short Guy!" id="short_guy" onclick="height_selector()">
+    <input type="checkbox" value="Short Guy!" id="short_guy" onclick="height_selector()">
   </br></br>
-    <p>Click here to make your character faster so you can cover more ground!</p>
-    <input type="button" value="Speedy!" id="speedster" onclick="speedup()">
+    <p>Check the box below to make your character faster so you can cover more ground!</p>
+    <input type="checkbox" value="Speedy!" id="speedster" onclick="speedup()">
   </div>
   <div class = "advertisement">
     <h2>Can you help Johnny keep it up!?!?!?</h2>
@@ -59,6 +60,7 @@
       in order to use your character's head to keep the ball up!</li>
       <li>Be careful not to let the ball drop below your player's head!</li>
       <li>Head the ball as many times as is required based on your level selection in order to win!</li>
+      <li>You can check the boxes to the left for some powerups that will help you beat the levels!</li>
     </ul>
   </div>
   <hr></hr>

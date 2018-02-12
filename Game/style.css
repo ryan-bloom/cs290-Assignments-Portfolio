@@ -40,6 +40,19 @@ canvas{
   width: 250px;
 }
 
+#wide_head:focus{
+  border: 2px solid blue;
+  border-radius: 100px;
+}
+#short_guy:focus{
+  border: 2px solid blue;
+  border-radius: 100px;
+}
+#speedster:focus{
+  border: 2px solid blue;
+  border-radius: 100px;
+}
+
 #player{
   width: 230px;
 }
@@ -63,7 +76,7 @@ canvas{
 
 .directions{
   display: block;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .footer p{
