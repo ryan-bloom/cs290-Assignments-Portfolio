@@ -3,92 +3,92 @@
     {
       "name":"water_1",
       "type":"water",
-      "imgPath":"gallary_images/water_1.PNG"
+      "imgPath":"gallary_images/water_1.png"
     },
     {
       "name":"water_2",
       "type":"water",
-      "imgPath":"gallary_images/water_2.PNG"
+      "imgPath":"gallary_images/water_2.png"
     },
     {
       "name":"water_3",
       "type":"water",
-      "imgPath":"gallary_images/water_3.PNG"
+      "imgPath":"gallary_images/water_3.png"
     },
     {
       "name":"water_4",
       "type":"water",
-      "imgPath":"gallary_images/water_4.PNG"
+      "imgPath":"gallary_images/water_4.png"
     },
     {
       "name":"water_5",
       "type":"water",
-      "imgPath":"gallary_images/water_5.PNG"
+      "imgPath":"gallary_images/water_5.png"
     },
     {
       "name":"water_6",
       "type":"water",
-      "imgPath":"gallary_images/water_6.PNG"
+      "imgPath":"gallary_images/water_6.png"
     },
     {
       "name":"mountain_1",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_1.PNG"
+      "imgPath":"gallary_images/Mountain_1.png"
     },
     {
       "name":"mountain_2",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_2.PNG"
+      "imgPath":"gallary_images/Mountain_2.png"
     },
     {
       "name":"mountain_3",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_3.PNG"
+      "imgPath":"gallary_images/Mountain_3.png"
     },
     {
       "name":"mountain_4",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_4.PNG"
+      "imgPath":"gallary_images/Mountain_4.png"
     },
     {
       "name":"mountain_5",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_5.PNG"
+      "imgPath":"gallary_images/Mountain_5.png"
     },
     {
       "name":"mountain_6",
       "type":"mountain",
-      "imgPath":"gallary_images/Mountain_6.PNG"
+      "imgPath":"gallary_images/Mountain_6.png"
     },
     {
       "name":"canyon_1",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_1.PNG"
+      "imgPath":"gallary_images/Canyon_1.png"
     },
     {
       "name":"canyon_2",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_2.PNG"
+      "imgPath":"gallary_images/Canyon_2.png"
     },
     {
       "name":"canyon_3",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_3.PNG"
+      "imgPath":"gallary_images/Canyon_3.png"
     },
     {
       "name":"canyon_4",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_4.PNG"
+      "imgPath":"gallary_images/Canyon_4.png"
     },
     {
       "name":"canyon_5",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_5.PNG"
+      "imgPath":"gallary_images/Canyon_5.png"
     },
     {
       "name":"canyon_6",
       "type":"canyon",
-      "imgPath":"gallary_images/Canyon_6.PNG"
+      "imgPath":"gallary_images/Canyon_6.png"
     }
   ]
 }
