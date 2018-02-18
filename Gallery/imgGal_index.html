@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Ryan Bloom">
+    <!-- stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- support for this page -->
+    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="image_gallary.js" async></script>
+
+    <title>Gallary Images</title>
+</head>
+
+<body>
+  <div id="title">
+    <h1>Pretty Pictures!</h1>
+  </div>
+  
+  <div id="slideshow">
+    <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+
+  <div id="checkboxes">
+    <h3>Check the boxes of the pictures that you want to see! Uncheck boxes to remove certain pictures!</h3>
+    <h4>Water Pictures: <input type="checkbox" id="water_check" checked></h4>
+    <h4>Mountain Pictures: <input type="checkbox" id="mountain_check" checked></h4>
+    <h4>Canyon Pictures: <input type="checkbox" id="canyon_check" checked></h4>
+  </div>
+
+  <div id="water_pics">
+    <h2>Water Scenes</h2>
+    <!--<ul id="waterList" class="col-lg-12 col-md-12 col-sm-12"></ul>-->
+  </div>
+
+  <div id="mountain_pics">
+    <h2>Mountain Scenes</h2>
+    <!--<ul id="mountainList"></ul>-->
+  </div>
+
+  <div id="canyon_pics">
+    <h2>Canyon Scenes</h2>
+    <!--<ul id="canyonList"></ul>-->
+  </div>
+</body>
+</html>

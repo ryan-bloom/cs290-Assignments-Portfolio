@@ -1,0 +1,55 @@
+#title{
+  display: block;
+  margin: auto;
+}
+#title h1{
+  text-align: center;
+  text-decoration: underline;
+  font-family:monospace;
+}
+
+#slideshow{
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+img:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.left{
+  display: block;
+  float: left;
+}
+
+.right{
+  display: block;
+  float: right;
+}
+
+#water_pics{
+  display: block;
+}
+
+div{
+  padding: 20px;
+}
+
+#checkboxes{
+  display: block;
+  margin: auto;
+}
+
+#checkboxes h3{
+  text-align: center;
+}
+#checkboxes h4{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+  padding: 10px;
+}
