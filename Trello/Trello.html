@@ -1,0 +1,77 @@
+    <!--EACH USER HAS OWN LIST-->
+    <!--Separate apps in vue for user login and for page of lists-->
+    <!--List are made up of cards-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- always put your name in your work -->
+        <meta name="author" content="Robert C. Duvall">
+        <!-- stop the web browser from ever caching this page or its images -->
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <!-- libraries neded for this page -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+        <!-- support for this page -->
+        <link rel="stylesheet" href="trello_css/trello_style.css">
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="trello_JS/trello_js.js" async></script>
+        <title>ToDo List</title>
+    </head>
+
+    <body>
+      <!--Web Page Header-->
+        <header class="header">
+            <h1>Your To-Do Lists!</h1>
+        </header>
+        <br></br>
+
+       <div id="Board" class="row" class="t_board">
+         <!--This div container sets up user sign up and user sign ins-->
+         <div class="all_user_info row col-lg-12 col-md-12 col-sm-12">
+           <div v-cloak class="new_user_info col-lg-6 col-md-6 col-sm-6">
+             <h4 id="new_user_inputs"> Sign Up Here!</h4>
+             <!--Input boxes for new user emails and usernames, adds to the array "users" via user_sign_up button-->
+             <input class="new_user_name" placeholder="Enter Your Username!" v-model="newUserName"/>
+             <input class="new_user_email" placeholder="Enter Your Email!" v-model="newUserEmail"/>
+             <button class="user_sign_up" @click="addUserInfo"><p>Click Here to Sign Up!</p></button>
+           </div></br>
+           <div v-cloak class="returning_user_info col-lg-6 col-md-6 col-sm-6">
+             <h4 id="returning_user_inputs"> Sign In Here! </h4>
+             <!--Input boxes for returning user emails and username sign-ins;
+             checks if username and email match a previously signed up user via the user_sign_in button-->
+             <input class="return_user_name" placeholder="Enter Your Username!" v-model="returnName"/>
+             <input class="return_user_email" placeholder="Enter Your Email!" v-model="returnEmail"/>
+             <button class="user_sign_in" @click="signIn"><p>Click Here to Sign In!</p></button>
+           </div></br>
+         </div>
+        <button class="new_list_maker" @click="newList">Make A New List!</button> </br>
+
+        <!--Loop through all each list object in lists array found in data section of javascript code-->
+         <div id="list_div" v-for="list in lists" class="col-lg-2 col-md-2 col-sm-5" :style='list.styleData'>
+           <!--Add buttons left and right in order to shift the order of the lists; call method from vue app-->
+           <button class="move_left" @click="move_up(list.id)"><p><</p></button>
+           <button class="move_right" @click="move_down(list.id)"><p>></p></button>
+           <!--Each list has three input boxes (v-models) that add to its data object; title, background-color, and cards to add-->
+           <div class="input_boxes">
+             <input class="title_input" placeholder="Enter List Title" v-model="list.title"/>
+             <input class="bgc" placeholder="Enter Background Color" v-model="list.styleData.backgroundColor"/>
+             <input placeholder="Enter Tasks!" v-model="list.newCard" @keyup.enter="addNewCard(list.id)"/>
+           </div>
+           <h3>{{list.title}}</h3>
+           <!--Must loop through every card in the cards array of each list in order to build the lists with cards-->
+           <div id="list_cards" v-for="card in list.cards" :style='list.styleData'>
+             <li class="col-7">
+               {{card.task}}
+               <!--Button removes cards when pressed-->
+               <button class = "card_remove col-2" @click="removeCard(list.id, card)"><p>x</p></button>
+             </li>
+           </div>
+           <!--Button at the end of each list removes the entire list from the board-->
+          <button class="list_removal" @click="removeList(list.id)">Remove This List!</button>
+         </div>
+       </div>
+    </body>
+    </html>

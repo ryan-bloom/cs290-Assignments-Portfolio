@@ -1,0 +1,98 @@
+/*TRELLO CSS STYLE SHEET*/
+
+/*Center the page title*/
+h1{
+  text-align: center;
+}
+
+/*Set all list titles to be centered and underlined*/
+h3{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.all_user_info{
+  display: block;
+  margin: auto;
+}
+
+/*Center heading for user sign up*/
+.new_user_info #new_user_inputs{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+/*Center the user text box inputs and button*/
+.new_user_info input{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.new_user_info button{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+/*Align the sign-up and sign-in sections of page*/
+.returning_user_info{
+  margin-top: -15px;
+}
+/*Center the heading for user sign in*/
+.returning_user_info #returning_user_inputs{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.returning_user_info input{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.returning_user_info button{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+/*Center the input text boxes for each list*/
+.input_boxes input{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+/*Center the remove_list button below each list*/
+.list_removal{
+  display: block;
+  margin: auto;
+}
+
+/*Reposition and size the buttons to move lists right and left*/
+.move_right{
+  display: block;
+  float: right;
+  height: 25px;
+}
+.move_left{
+  display: block;
+  float: left;
+  height: 25px;
+}
+
+/*Center the newList button*/
+.new_list_maker{
+  display: block;
+  margin: auto;
+}
+
+
+/*Make the card removal button appear next to each card*/
+.card_remove{
+  width: 25px;
+  height: 25px;
+  float: right;
+}
+/*Alight the "card_remove" text within each button*/
+.card_remove p{
+  text-align: center;
+}
