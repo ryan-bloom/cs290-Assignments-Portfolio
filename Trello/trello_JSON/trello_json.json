@@ -1,19 +1,6 @@
 {
-  "lists":[
-    "id",
-    "title",
-    "cards"[],
-    "newCard",
-    "styleData"{}
-  ],
-  "users": [
-    "userName",
-    "userEmail"
-  ],
-  "newUserName"
-  "newUserEmail"
-  "returnName"
-  "returnEmail"
+  "lists":[],
+  "users": []
 }
 
 /*JSON FILE NOT YET SET UP, HAVE QUESTIONS*/

@@ -11,9 +11,12 @@ h3{
   text-decoration: underline;
 }
 
+/*Change style of all user divs (sign up, sign in, change)*/
 .all_user_info{
   display: block;
   margin: auto;
+  padding-bottom: 30px;
+  border: 1px solid black;
 }
 
 /*Center heading for user sign up*/
@@ -22,7 +25,7 @@ h3{
   margin: auto;
   text-align: center;
 }
-/*Center the user text box inputs and button*/
+/*Center the user text box inputs and button for user sign up div*/
 .new_user_info input{
   display: block;
   margin: auto;
@@ -36,7 +39,7 @@ h3{
 
 /*Align the sign-up and sign-in sections of page*/
 .returning_user_info{
-  margin-top: -15px;
+  margin-top: -20px;
 }
 /*Center the heading for user sign in*/
 .returning_user_info #returning_user_inputs{
@@ -44,6 +47,7 @@ h3{
   margin: auto;
   text-align: center;
 }
+/*Center input and buttons for returning user sign in div*/
 .returning_user_info input{
   display: block;
   margin: auto;
@@ -54,12 +58,37 @@ h3{
   margin: auto;
   text-align: center;
 }
+/*Align edit_user_info div with other user divs*/
+.edit_user_info #edit_user_title{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+/*Shift edit user div box up for all by xs screen sizes*/
+@media(min-width:769px){
+  .edit_user_info{
+    margin-top: -41px;
+  }
+}
+/*Move around input boxes and buttons for edit user info div box*/
+.edit_user_info input{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.edit_user_info button{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
 
 /*Center the input text boxes for each list*/
 .input_boxes input{
   display: block;
   margin: auto;
   text-align: center;
+  width: 100%;
 }
 /*Center the remove_list button below each list*/
 .list_removal{
@@ -84,14 +113,44 @@ h3{
   display: block;
   margin: auto;
 }
+/*Set collapse list button*/
+.collapse_stuff{
+  margin-left: 20%;
+  height: 25px;
+}
+.expand_stuff{
+  margin: auto;
+  height: 25px;
+}
 
+/*set border around each list for aesthetics and organization*/
+#list_div{
+  border: 1px solid black;
+  border-radius: 10px;
+}
 
-/*Make the card removal button appear next to each card*/
+/*Make the card buttons appear next to each card*/
+.card_move_right{
+  width: 25px;
+  height: 25px;
+  float: right;
+}
+.card_move_left{
+  width: 25px;
+  height: 25px;
+  float: right;
+}
 .card_remove{
   width: 25px;
   height: 25px;
   float: right;
 }
+.see_more{
+  display: block;
+  height: 25px;
+  margin: auto;
+}
+
 /*Alight the "card_remove" text within each button*/
 .card_remove p{
   text-align: center;
