@@ -32,7 +32,9 @@
         </header>
         <br></br>
 
-       <div id="Board" class="row" class="t_board">
+       <div id="Board" class="row">
+         <!--<input class="background_color_set" placeholder="Set Background Color" v-model="backgroundColor"/>
+         <br></br>-->
          <!--This div container sets up user sign up and user sign ins-->
          <div class="all_user_info row col-lg-12 col-md-12 col-sm-12">
            <div v-cloak class="new_user_info col-lg4 col-md-4 col-sm-4">
@@ -40,6 +42,13 @@
              <!--Input boxes for new user emails and usernames, adds to the array "users" via user_sign_up button-->
              <input class="new_user_name" placeholder="Enter Your Username!" v-model="newUserName"/>
              <input class="new_user_email" placeholder="Enter Your Email!" v-model="newUserEmail"/>
+             <select name="user_img_select" v-model="newUserImg">
+              <option disabled value="">Select Image</option>
+              <option value="1"> Sports Image </option>
+              <option value="2"> Arts Image </option>
+              <option value="3"> Music Image </option>
+              <option value="4"> School Image </option>
+             </select>
              <button class="user_sign_up" @click="addUserInfo"><p>Click Here to Sign Up!</p></button>
            </div></br>
            <div v-cloak class="returning_user_info col-lg-4 col-md-4 col-sm-4">
@@ -81,31 +90,44 @@
            <div class="input_boxes">
              <input class="title_input" placeholder="Enter List Title" v-model="list.title"/>
              <input class="bgc" placeholder="Enter Background Color" v-model="list.styleData.backgroundColor"/>
-             <input placeholder="Enter Tasks!" v-model="list.newCard" @keyup.enter="addNewCard(list.id)"/>
+             <!--Users can input tasks with specified deadlines (specifying a deadline is not necessary to enter a task)-->
+             <input class="task_input" placeholder="Enter Task!" v-model="list.newCard" @keyup.enter="addNewCard(list.id)"/>
+             <input class="deadline_input" placeholder="Enter Deadline!" v-model="list.newDeadline" @keyup.enter="addNewCard(list.id)"/>
            </div>
            <h3>{{list.title}}</h3>
            <!--Must loop through every card in the cards array of each list in order to build the lists with cards-->
            <div id="list_cards" class="collapse" v-for="card in list.cards" :style='list.styleData'>
              <li class="cards_li col-12" :style='card.styleData'>
+               {{card.task}}
+               <!--Button removes cards when pressed-->
+               <button class= "card_move_right col-2" @click="card_right(list.id, card)"><p>></p></button>
+               <button class = "card_remove col-2" @click="removeCard(list.id, card)"><p>x</p></button>
+               <button class= "card_move_left col-2" @click="card_left(list.id, card)"><p><</p></button>
                <!--Drop down menue to categorize cards, on change, call the card_cat function to change the color-->
-               <select name="card_cats" v-model="card.cardCategory" @change="card_cat(list.id, card)">
-                 <option disabled value="">Category</option>
+               <select class="card_cats" name="card_cats" v-model="card.cardCategory" @change="card_cat(list.id, card)">
+                 <option disabled value="">Category/Status</option>
                  <option value="urgent">Urgent</option>
                  <option value="normal">Normal</option>
                  <option value="minor">Minor</option>
                  <option value="inProgress">In Progress</option>
                  <option value="completed">Completed</option>
                </select>
-               {{card.task}}
-               <!--Button removes cards when pressed-->
-               <button class= "card_move_right col-2" @click="card_right(list.id, card)"><p>></p></button>
-               <button class = "card_remove col-2" @click="removeCard(list.id, card)"><p>x</p></button>
-               <button class= "card_move_left col-2" @click="card_left(list.id, card)"><p><</p></button>
+               <input class="card_comments" v-model="card.cardComment" placeholder="Comments" @keyup.enter="addComment(list.id, card)"/> <br></br>
                <div><button class="see_more" @click="cardInfo(list.id, card)"><p>See More</p></button></div>
              </li>
            </div>
-           <!--Button at the end of each list removes the entire list from the board-->
-          <button class="list_removal" @click="removeList(list.id)">Remove This List!</button>
+           <!--Drop down menu of filters to select from in order to filter visible cards based on categories-->
+          <select class="card_filt" name="card_filters" v-model="list.filter" @change="card_filter(list.id)">
+            <option disabled value="">Filter Cards</option>
+            <option value="none">None</option>
+            <option value="urgent">Urgent</option>
+            <option value="normal">Normal</option>
+            <option value="minor">Minor</option>
+            <option value="inProgress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <!--Button at the end of each list removes the entire list from the board-->
+         <button class="list_removal" @click="removeList(list.id)">Remove This List!</button>
          </div>
        </div>
     </body>

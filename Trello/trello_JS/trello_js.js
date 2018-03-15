@@ -1,45 +1,7 @@
 /*
- *  A simple todo list app.
  *
- * @author YOUR NAMES HERE
+ * @author Ryan Bloom
  */
-
-/* Filters and todoList code from vueLab, not used here but too scared to delete just yet
-// visibility filters
-var filters = {
-    all: function (cards) {
-        return cards;
-    },
-    active: function (cards) {
-        return cards.filter(card => !card.completed);
-    },
-    completed: function (cards) {
-        return cards.filter(card => card.completed);
-    }
-}
-
-// Define custom filter to correctly pluralize the word
-Vue.filter('pluralize', function (n) {
-    return n === 1 ? 'item' : 'items';
-});
-
-// Example data that represents the list of todo items
-
-var todoList = [
-    {
-        title: 'Download code',
-        completed: true
-    },
-    {
-        title: 'Study code',
-        completed: true
-    },
-    {
-        title: 'Finish code',
-        completed: true
-    }
-]; */
-
 
 //connect with firebase
 var config = {
@@ -70,12 +32,12 @@ var app = new Vue({
 
       //Array to keep track of users that sign up
 
-
 //JSON.stringify will output JSON rather than building own thing
 
       //users:[],
       newUserName: '',
       newUserEmail: '',
+      newUserImg: '',
       returnName: '',
       changeUserOld: '',
       changeUserNew: '',
@@ -101,8 +63,12 @@ var app = new Vue({
           id: idNum,
           title: "",
           newCard: '',
+          newDeadline: '',
+          filter: '',
           cards: [],
           hideCards: [],
+          filteredCards: [],
+          tempFilt: [],
           visibility: 'all',
           styleData:{
             backgroundColor:'',
@@ -117,14 +83,22 @@ var app = new Vue({
 card to that list's list of cards. Called when "enter" is pressed
 after user inputs information into the card text box*/
       addNewCard(id){
-        //If there is something entered in the text box
+        //If no deadline is entered, dline is set to the card's deadline
+        var dline = "No Deadline Set"
+        //If there is something entered in the text boxes
         if(this.lists[id-1].newCard){
           //Push to the specific list's list of cards
+          if(this.lists[id-1].newDeadline){
+            dline = this.lists[id-1].newDeadline;
+          }
           this.lists[id-1].cards.push({
             task: this.lists[id-1].newCard,
             cardCategory: '',
             cardUsers: [],
-            deadline: "1 Hour!",
+            deadline: dline,
+            date: new Date(),
+            cardComment: '',
+            Comments: [],
             styleData:{
               color:'',
               fontWeight:'',
@@ -138,6 +112,7 @@ after user inputs information into the card text box*/
             this.lists[id-1].cards[numCs-1].cardUsers.push(this.returnName.toLowerCase());
           }
           this.lists[id-1].newCard = '';
+          this.lists[id-1].newDeadline = '';
         }
       },
       //listRef.child(id['.key']).child('cards').push({})
@@ -206,14 +181,17 @@ after user inputs information into the card text box*/
         }
       },
 
+//When "see more" button is selected, dispalys more info about that card
       cardInfo(id, card){
         var cID = this.lists[id-1].cards.indexOf(card);
         var c = this.lists[id-1].cards[cID];
         alert("Card Info Below! \n\n" +
+              "Date Created: " + c.date + "\n" +
               "Task: " + c.task + "\n" +
-              "Category: " + c.cardCategory + "\n" +
+              "Category/Status: " + c.cardCategory + "\n" +
               "Users: " + c.cardUsers + "\n" +
-              "Deadline: " + c.deadline)
+              "Deadline: " + c.deadline + "\n" +
+              "Comments/Sub-Lists: " + c.Comments)
       },
 
       //Move the entire list up one spot in the array of lists
@@ -256,11 +234,59 @@ after user inputs information into the card text box*/
         }
       },
 
+      //Add comments to Comments array for the card
+      addComment(id, card){
+        if(card.cardComment){
+          card.Comments.push(card.cardComment);
+          card.cardComment = '';
+        }
+      },
+
+      //When the filter is changed for a list, this function runs to only display cards of the selected category
+      card_filter(id){
+        //Only run if the list of cards or the filterd cards cards have anything in them
+        if(this.lists[id-1].cards.length != 0 || this.lists[id-1].filteredCards.length != 0){
+          var f = this.lists[id-1].filter;
+          if(f == "none"){
+            if(this.lists[id-1].filteredCards.length != 0){
+              for(i=0; i<this.lists[id-1].filteredCards.length; i++){
+                var c1 = this.lists[id-1].filteredCards[i];
+                this.lists[id-1].cards.push(c1);
+              }
+            }
+            this.lists[id-1].filteredCards = [];
+          }
+          //Put all cards not in the selected category into a hidden array
+          else{
+            if(this.lists[id-1].filteredCards.length != 0){
+              for(i=0; i<this.lists[id-1].filteredCards.length; i++){
+                var c2 = this.lists[id-1].filteredCards[i];
+                this.lists[id-1].cards.push(c2);
+              }
+            }
+            this.lists[id-1].filteredCards = [];
+            for(i = 0; i<this.lists[id-1].cards.length; i++){
+              var c3 = this.lists[id-1].cards[i];
+              if(c3.cardCategory != f){
+                this.lists[id-1].filteredCards.push(c3);
+              }
+              else{
+                this.lists[id-1].tempFilt.push(c3);
+              }
+            }
+            //Reset the visible and hidden arrays
+            this.lists[id-1].cards = this.lists[id-1].tempFilt;
+            this.lists[id-1].tempFilt = [];
+          }
+        }
+      },
+
+
       //Called when user click's "sign_up" button
       //Adds the user's username and email to the array "users"
       //Check to make sure a username and email have been written in the v-model boxes
       addUserInfo(){
-        if(this.newUserName != '' && this.newUserEmail != ''){
+        if(this.newUserName != '' && this.newUserEmail != '' && this.newUserImg != ''){
           for(i=0; i<this.users.length; i++){
             un = this.users[i].userName;
             em = this.users[i].userEmail;
@@ -285,9 +311,10 @@ after user inputs information into the card text box*/
           })
           this.newUserName = '';
           this.newUserEmail = '';
+          this.newUserImg = '';
         }
         else{
-          alert("Please Enter Username and Email");
+          alert("Please Enter Username, Email, and select an Image");
         }
       },
 
@@ -378,7 +405,6 @@ after user inputs information into the card text box*/
               if(this.returnName == em){
                 this.returnName = this.changeEmailNew.toLowerCase();
               }
-
               this.changeEmailOld = '';
               this.changeEmailNew = '';
               return;
@@ -391,49 +417,6 @@ after user inputs information into the card text box*/
         }
       }
     }
-
-/* Code from vueLab but too scared to delete yet
-    computed: {
-        // return cards that match the currently selected filter
-        filteredCards () {
-            return filters[this.visibility](this.cards);
-        },
-
-        // return count of the remaining active card items
-        remaining () {
-            return filters.active(this.cards).length;
-        }
-    },
-
-    methods: {
-        // change current filter to the given value
-        setFilter (filter) {
-            this.visibility = filter;
-        },
-
-        // add newly entered todo item if it exists and clear it to prepare for the next one
-        addCard () {
-            this.newCard = this.newCard.trim();
-            if (this.newCard) {
-                this.cards.push({
-                    title: this.newCard,
-                    completed: false
-                })
-                // text input displays this value, so clear it to indicate ready to type a new one
-                this.newCard = '';
-            }
-        },
-
-        // remove given todo from the list
-        removeTodo (card) {
-            this.cards.splice(this.cards.indexOf(card), 1)
-        },
-
-        // remove all completed cards from the list
-        removeCompleted () {
-            this.cards = filters.active(this.cards)
-        }
-    }*/
 })
 
 // mount

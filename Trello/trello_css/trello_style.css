@@ -1,9 +1,13 @@
 /*TRELLO CSS STYLE SHEET*/
+/*Set whole background color for site
+Users can change list colors and card colors*/
+
 
 /*Center the page title*/
 h1{
   text-align: center;
 }
+
 
 /*Set all list titles to be centered and underlined*/
 h3{
@@ -27,6 +31,11 @@ h3{
 }
 /*Center the user text box inputs and button for user sign up div*/
 .new_user_info input{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.new_user_info select{
   display: block;
   margin: auto;
   text-align: center;
@@ -90,6 +99,7 @@ h3{
   text-align: center;
   width: 100%;
 }
+
 /*Center the remove_list button below each list*/
 .list_removal{
   display: block;
@@ -150,8 +160,23 @@ h3{
   height: 25px;
   margin: auto;
 }
+.card_cats{
+  display: block;
+  float: right;
+}
+.card_comments{
+  display: block;
+  float: right;
+  width: 125px;
+}
 
 /*Alight the "card_remove" text within each button*/
 .card_remove p{
   text-align: center;
+}
+
+/*Center the card filter menu*/
+.card_filt{
+  display: block;
+  margin: auto;
 }
