@@ -180,3 +180,9 @@ h3{
   display: block;
   margin: auto;
 }
+
+/*Center activities log button*/
+.activities_show{
+  display: block;
+  margin: auto;
+}
