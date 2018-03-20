@@ -655,6 +655,7 @@ after user inputs information into the card text box*/
                 activity: "User " + un + " changed username to "+ this.changeUserNew +" at "+ new Date()
               });
               this.updateDatabase("activities", this.activities);
+              this.updateDatabase("users", this.users);
               alert("You changed your username from " + this.changeUserOld + " to " + this.changeUserNew);
               if(this.returnName == un){
                 this.returnName = this.changeUserNew.toLowerCase();
@@ -695,6 +696,7 @@ after user inputs information into the card text box*/
                 activity: "User " + em + " changed email to "+ this.changeEmailNew +" at "+ new Date()
               });
               this.updateDatabase("activities", this.activities);
+              this.updateDatabase("users", this.users);
               alert("You changed your email from " + this.changeEmailOld + " to " + this.changeEmailNew);
               if(this.returnName == em){
                 this.returnName = this.changeEmailNew.toLowerCase();
