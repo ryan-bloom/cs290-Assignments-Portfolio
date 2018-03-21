@@ -544,16 +544,16 @@ after user inputs information into the card text box*/
           //Set the picture to the selcted image by user
           var pic = '';
           if(this.newUserImg == 1){
-            pic = "../trello_images/sports_img.png";
+            pic = "/trello_images/sports_img.png";
           }
           if(this.newUserImg == 2){
-            pic = "../trello_images/art_img.png";
+            pic = "/trello_images/art_img.png";
           }
           if(this.newUserImg == 3){
-            pic = "../trello_images/music_img.png";
+            pic = "/trello_images/music_img.png";
           }
           if(this.newUserImg == 4){
-            pic = "../trello_images/school_img.png";
+            pic = "/trello_images/school_img.png";
           }
           //Push new user object to users array once reach end of loop, no duplicates
           this.users.push({
