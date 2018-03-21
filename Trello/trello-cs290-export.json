@@ -1,1 +1,89 @@
-null
+{
+  "activities" : [ {
+    "activity" : "New user added to users at Wed Mar 21 2018 16:47:22 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "User, ryanb, signed in at Wed Mar 21 2018 16:47:26 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "list 0 create at: Wed Mar 21 2018 16:47:28 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "list 1 create at: Wed Mar 21 2018 16:47:29 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "Title added to/changed for list 1 at: Wed Mar 21 2018 16:47:33 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "List 1 color changed to Aqua at Wed Mar 21 2018 16:47:36 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "Card added to list 1 at: Wed Mar 21 2018 16:47:43 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "Card added to list 1 at: Wed Mar 21 2018 16:47:51 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "Card moved from list 1 to list 0 at Wed Mar 21 2018 16:47:53 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "Card moved from list 0 to list 1 at Wed Mar 21 2018 16:47:55 GMT-0400 (Eastern Daylight Time)"
+  }, {
+    "activity" : "List 1 swapped locations with list 0 at Wed Mar 21 2018 16:47:56 GMT-0400 (Eastern Daylight Time)"
+  } ],
+  "idNum" : 2,
+  "lists" : [ {
+    "cards" : [ {
+      "Comments" : [ "Comments" ],
+      "cardCategory" : "",
+      "cardComment" : "",
+      "cardUsers" : [ "Users", "ryanb" ],
+      "deadline" : "TOMORROW",
+      "styleData" : {
+        "border" : "1px solid black",
+        "color" : "",
+        "fontWeight" : "",
+        "padding" : "5px"
+      },
+      "task" : "Submit Assignment"
+    }, {
+      "Comments" : [ "Comments" ],
+      "cardCategory" : "",
+      "cardComment" : "",
+      "cardUsers" : [ "Users", "ryanb" ],
+      "deadline" : "No Deadline Set",
+      "styleData" : {
+        "border" : "1px solid black",
+        "color" : "",
+        "fontWeight" : "",
+        "padding" : "5px"
+      },
+      "task" : "Take out garbage"
+    } ],
+    "filter" : "",
+    "id" : 1,
+    "newCard" : "",
+    "newDeadline" : "",
+    "styleData" : {
+      "backgroundColor" : "Aqua",
+      "display" : "block",
+      "marginLeft" : "10px",
+      "padding" : "5px"
+    },
+    "tempColor" : "",
+    "tempTitle" : "",
+    "title" : "To Do",
+    "visibility" : "all"
+  }, {
+    "filter" : "",
+    "id" : 2,
+    "newCard" : "",
+    "newDeadline" : "",
+    "styleData" : {
+      "backgroundColor" : "",
+      "display" : "block",
+      "marginLeft" : "10px",
+      "padding" : "5px"
+    },
+    "tempColor" : "",
+    "tempTitle" : "",
+    "title" : "",
+    "visibility" : "all"
+  } ],
+  "users" : [ {
+    "userEmail" : "ryan@gmail.com",
+    "userImg" : "../trello_images/art_img.png",
+    "userName" : "ryanb"
+  } ]
+}
