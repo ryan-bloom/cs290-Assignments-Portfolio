@@ -1,0 +1,31 @@
+{
+    "title" : "Duke Quiz",
+    "Description": "This quiz will test your knowledge about Duke University!",
+    "questions" : [
+    {
+        "question": "In what city is Duke Univeristy located?",
+        "choices": [ "Atlanta", "Raleigh", "Durham", "Chapel Hill" ],
+        "correctAnswer": 2
+    },
+    {
+        "question": "In 1924, the university changed its name to Duke University from what name?",
+        "choices": [ "Brown School", "Normal College", "Trinity College", "Few University", "Union Institute" ],
+        "correctAnswer": 2
+    },
+    {
+        "question": "The Duke Endowment, whose primary beneficiary is Duke University, also partially endows what university?",
+        "choices": [ "High Point University", "North Carolina Central University", "UNC Chapel Hill", "Wake Forest University", "Davidson College" ],
+        "correctAnswer": 4
+    },
+    {
+        "question": "Which of the following is the namesake of the University's primary architect?",
+        "choices": [ "Few Quadrangle", "Allen Building", "Carr Building", "Abele Quadrangle", "Bryan University Center"],
+        "correctAnswer": 3
+    },
+    {
+        "question": "How many Final Fours has Duke played in?",
+        "choices": [ "5", "16", "15", "20", "25" ],
+        "correctAnswer": 1
+    }
+        ]
+}

@@ -1,0 +1,31 @@
+{
+    "title": "Geography Quiz",
+    "Description":"This quiz tests your knowledge about geography",
+    "questions": [
+        {
+            "question": "What is the largest state (in terms of land area) in the continental US?",
+            "choices": ["New York", "California", "Michigan", "Texas"],
+            "correctAnswer": 3
+        },
+        {
+            "question": "Which state has the largest population size as of January 2018?",
+            "choices": ["Texas", "California", "New Jersey", "Florida"],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Which state is not part of the 'Four Corners'?",
+            "choices": ["Nevada", "Utah", "Colorado", "New Mexico", "Arizona"],
+            "correctAnswer": 0
+        },
+        {
+            "question": "How many US states share a border with Canada?",
+            "choices": [10, 16, 8, 13, 11],
+            "correctAnswer": 3
+        },
+        {
+            "question": "What is the smallest state (in terms of land area) the continental US?",
+            "choices": ["New York", "New Jersey", "Kansas", "Rhode Island", "Idaho"],
+            "correctAnswer": 3
+        }
+    ]
+}
