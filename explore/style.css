@@ -1,0 +1,25 @@
+
+/*Center the header and directions with h1, h3, p*/
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h3{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+/*Center the buttons*/
+button{
+    display: block;
+    margin: auto;
+}
+
+/*Start the restart button as hidden, only display once user lost*/
+#restart{
+    display: none;
+}

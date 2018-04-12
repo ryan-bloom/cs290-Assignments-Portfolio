@@ -1,0 +1,378 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Ryan Bloom">
+    <title>Hello World</title>
+    <script src="pixi.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+    
+<body>
+    <div class="header">
+        <!--Header above the game with instructions-->
+        <h1>How Far Can You Drive?</h1>
+        <p>Click the start button to begin. Use left and right arrow keys to move your car.  Avoid the road blocks!</p>
+    </div>
+    
+    <!--Start and try again buttons to start the game and reload after a loss-->
+    <button id="start">START!</button>
+    <button id="restart">RELOAD!</button>
+    
+    
+    <script type="text/javascript">
+        //Aliasing application calls so that syntax throughout the app is shorter and easier
+        var Application = PIXI.Application,
+            Container = PIXI.Container,
+            loader = PIXI.loader,
+            resources = PIXI.loader.resources,
+            TextureCache = PIXI.utils.TextureCache,
+            Sprite = PIXI.Sprite,
+            Text = PIXI.Text;
+        
+        //Create a Pixi Application
+        var app = new Application({
+            width: 256, 
+            height: 256,
+            resolution: 1
+        });
+        
+        app.renderer.autoResize = true;
+        app.renderer.resize(512,512);
+        app.renderer.backgroundColor = 0x909090;
+
+        //Add the canvas that Pixi automatically created for you to the HTML document
+        document.body.appendChild(app.view);
+        
+        
+        //Initialize global variables
+        var car, blocks_array, block, state, style, score, 
+            lives, scDisplay, lvDisplay, gameOver, roadlines;
+        
+        //Runs on all loaded images
+        var startButton = document.getElementById("start");
+        var restartButton = document.getElementById("restart");
+        
+        
+        //Don't start the game until this button is clicked
+        startButton.onclick = function(){
+            //load an image and run 'setup' function
+            loader.add(["Sprites/car.png",
+                        "Sprites/obstacle.png",
+                        "Sprites/roadLine.png"]).load(setup);
+        }
+        
+        //Once the user loses all of his/her lives, this button is made visible
+        //Clicking it will reload the page to play again
+        restartButton.onclick = function(){
+            document.location.reload();
+        }
+        
+        function setup(){
+            
+            //Create gameScene and gameOverScene containers to hold sprites
+            gameScene = new Container;
+            app.stage.addChild(gameScene);
+            gameOverScene = new Container;
+            app.stage.addChild(gameOverScene);
+            gameOverScene.visible = false;
+            
+            
+            score = 0;
+            lives = 5;
+            
+            //Give the text a style
+            style = new PIXI.TextStyle({
+                fill: "white",
+                fontSize: 19,
+            })
+            //Display score and lives
+            scDisplay = new Text("Your Score: " + score, style);
+            lvDisplay = new Text("Lives Left: " + lives, style);
+            scDisplay.position.set(370,0);
+            lvDisplay.position.set(370,30);
+            //app.stage.addChild(scDisplay);
+            //app.stage.addChild(lvDisplay);
+            gameScene.addChild(scDisplay);
+            gameScene.addChild(lvDisplay);
+            
+            //Add text to screen once user loses
+            gameOver = new Text("Oh No! You wrecked your car!", style);
+            gameOver.position.set(140,206);
+            gameOverScene.addChild(gameOver);
+            
+            
+            //Create the road lines that will display on the screen
+            roadlines = [];
+            for(var i = 0; i < 11; i++){
+                line = new Sprite(resources["Sprites/roadLine.png"].texture);
+                line.width = 20;
+                line.height = 30;
+                line.x = 246;
+                line.y = 482 - (i*50);
+                roadlines.push(line);
+                gameScene.addChild(line);
+                
+            }
+            
+            //Initialize array of roadblocks
+            blocks_array = [];
+        
+            
+            //Create all of the roadblocks that will be in the game
+            for(var i = 0; i < 6; i++){
+                block = new Sprite(resources["Sprites/obstacle.png"].texture);
+                block.width = randomInt(60,150);
+                block.height = randomInt(30,70);
+                block.x = randomInt(0,492);
+                block.y = randomInt(-512,0);
+                blocks_array.push(block);
+                gameScene.addChild(block);
+                //app.ticker.add(delta => gameLoop(delta));
+            }
+            
+            //Add the car to the screen for user to use
+            car = new Sprite(resources["Sprites/car.png"].texture);
+            //set car variables 
+            car.width = 35;
+            car.height = 55;
+            car.vx = 0;
+            car.vy = 0;
+            car.position.set(238, 472);
+            car.anchor.set(0.5, 0.5);
+            gameScene.addChild(car);
+            
+            
+            //add keys to be pressed (37 and 39 are ascii numbers)
+            var left = keyboard(37),
+                right = keyboard(39);
+            
+            //Move the car left
+            left.press = () => {
+                //Change direction of movement when left key is pressed
+                car.vx = -4;
+                car.rotation = -0.5;
+            };
+            //Stop moving the car left
+            left.release = () => {
+                //Stops the car motion and reset car to facing forward
+                if(!right.isDown){
+                    car.vx = 0;
+                    car.rotation = 0;
+                }
+            };
+            //Moving the car right
+            right.press = () => {
+                //change direction of movement when right key is pressed
+                car.vx = 4;
+                car.rotation = 0.5;
+            };
+            //Releasing the right arrowkey 
+            right.release = () => {
+                if(!left.isDown){
+                    //Stops the car motion and reset car to facing forward
+                    car.vx = 0;
+                    car.rotation = 0;
+                }
+            };
+            
+            //set game state
+            state = play;
+            
+            //start the game loop
+            app.ticker.add(delta => gameLoop(delta));
+            
+            //app.stage.addChild(car);
+        }
+        
+        //Function to detect if your car has been hit
+        function collision(sprite1, sprite2){
+            //Map out the edges of the road blocks (+10 and +11 for playability) 
+            var rightEdgeBlock = sprite1.x + sprite1.width + 10;
+            var leftEdgeBlock = sprite1.x+ 11;
+            var lowerEdgeBlock = sprite1.y+sprite1.height;
+            var upperEdgeBlock = sprite1.y;
+            
+            //Map out edges of car
+            var rightEdgeCar = sprite2.x + sprite2.width;
+            var leftEdgeCar = sprite2.x;
+            //height/2 for playability 
+            var lowerEdgeCar = sprite2.y+10;
+            var upperEdgeCar = sprite2.y;
+            
+            //If the road block is at the same height of car, potential collision 
+            if((lowerEdgeBlock >= upperEdgeCar) && (upperEdgeBlock <= lowerEdgeCar)){
+                //If the car is between both edges of the road block- collision
+                if(leftEdgeBlock <= leftEdgeCar && rightEdgeBlock >= rightEdgeCar){
+                    return true;
+                }
+                if(rightEdgeBlock >= leftEdgeCar && rightEdgeBlock <= rightEdgeCar){
+                    return true;
+                }
+                if(leftEdgeBlock <= rightEdgeCar && leftEdgeBlock >= leftEdgeCar){
+                    return true;
+                }
+            }
+        }
+        
+        //Keyboard function to detect arrow key usage by user in game
+        //keyboard(keyCode) function from tutorial provided 
+        function keyboard(keyCode){
+            var key = {};
+            key.code = keyCode;
+            key.isDown = false;
+            key.isUp = true;
+            key.press = undefined;
+            key.release = undefined;
+            //To handle when key is pressed
+            key.downHandler = event => {
+                if(event.keyCode === key.code){
+                    if (key.isUp && key.press) key.press();
+                    key.isDown = true;
+                    key.isUp = false;
+                }
+                event.preventDefault();
+            };
+            //To handle when key is released
+            key.upHandler = event => {
+                if(event.keyCode === key.code){
+                    if(key.isDown && key.release) key.release();
+                    key.isDown = false;
+                    key.isUp = true;
+                }
+                event.preventDefault();
+            };
+            //add javascript listeners to run when an event happens
+            window.addEventListener(
+                "keydown", key.downHandler.bind(key), false            
+            );
+            window.addEventListener(
+                "keyup", key.upHandler.bind(key), false
+            );
+            return key;
+        }
+        
+        
+        //loop the entire game animation
+        function gameLoop(delta){
+            state(delta)
+        }
+        
+        //Code run 60 times every second (via gameLoop function)
+        function play(delta){
+            //Move the roadlines so that the car appears to be in motion
+            for(var j = 0; j < roadlines.length; j++){
+                //Change the speed of car driving based on score
+                //Higher score = faster driving for harder gameplay
+                if(score < 10){
+                    roadlines[j].y += 2;
+                    if(roadlines[j].y >= 512){
+                    roadlines[j].y = -30;
+                }
+                }
+                else if(score < 35){
+                    roadlines[j].y += 3;
+                    if(roadlines[j].y >= 512){
+                    roadlines[j].y = -30;
+                }
+                }
+                else if(score < 65){
+                    roadlines[j].y += 5;
+                    if(roadlines[j].y >= 512){
+                    roadlines[j].y = -20;
+                }
+                }
+                else if(score < 100){
+                    roadlines[j].y += 7;
+                    if(roadlines[j].y >= 512){
+                    roadlines[j].y = -15;
+                }
+                }
+                else{
+                    roadlines[j].y += 10;
+                    if(roadlines[j].y >= 512){
+                    roadlines[j].y = -5;
+                }
+                }
+                //Once the go past the screen, loop the lines back to the top
+                /*if(roadlines[j].y >= 512){
+                    roadlines[j].y = -30;
+                }*/
+            }
+            
+            
+            for(var i = 0; i < blocks_array.length; i++){
+                //Change the speed of car driving based on score
+                if(score < 10){
+                    blocks_array[i].y += 2;
+                }
+                else if(score < 35){
+                    blocks_array[i].y += 3;
+                }
+                else if(score < 65){
+                    blocks_array[i].y += 5;
+                }
+                else if(score < 100){
+                    blocks_array[i].y += 7;
+                }
+                else{
+                    blocks_array[i].y += 10;
+                }
+                
+                //If you don't avoid the road blocks, decrement live count
+                if(collision(blocks_array[i], car)){
+                    blocks_array[i].y = -20;
+                    if(lives > 0){
+                        lives -= 1;
+                        lvDisplay.text = "Lives Left: " + lives;
+                    }
+                    //If you ran out of all of your lives
+                    else{
+                        blocks_array = [];
+                        gameScene.visible = false;
+                        gameOver.text = "Oh no... you wrecked your car!" + "\n" + "Your final score: " + score;
+                        gameOverScene.visible = true;
+                        restartButton.style.display = "block";
+                    }
+                    continue;
+                }
+                //If off screen, send back to top to create loop and change the x location as well
+                if(blocks_array[i].y >= 512){
+                    //This means that you successfully avoided a road block!
+                    score += 1;
+                    scDisplay.text = "Your Score: " + score;
+                    //scDisplay.position.set(390,0);
+                    //app.stage.addChild(scDisplay);
+                    
+                    blocks_array[i].y = randomInt(-500,0);
+                    blocks_array[i].x = randomInt(0,480);
+                    blocks_array[i].width = randomInt(60,150);
+                    blocks_array[i].height = randomInt(30,70);
+                    /*if(blocks_array[i].x <= 0 - blocks_array[i].width){
+                        blocks_array[i].x = 512 - blocks_array[i].width;
+                    }
+                    else if(blocks_array[i].x >= 512 + blocks_array[i].width){
+                        blocks_array[i].x = 0 + blocks_array[i].width
+                    }*/
+                }
+            };
+            car.x += car.vx
+            //Allow the car to loop through the wall and appear on other side
+            if(car.x <= 0){
+                car.x = 512;
+            }
+            //Loop to left side if go off to the right
+            if(car.x > 512){
+                car.x = 0;
+            }
+            
+        }
+        
+        //randomInt helper function from tutorial provided for pixi
+        function randomInt(min,max){
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+    
+</html>
