@@ -78,7 +78,7 @@
             app.stage.addChild(gameOverScene);
             gameOverScene.visible = false;
             
-            
+            //Initialize score to 0 and give the user 5 lives to start
             score = 0;
             lives = 5;
             
@@ -338,7 +338,7 @@
                     else{
                         blocks_array = [];
                         gameScene.visible = false;
-                        gameOver.text = "Oh no... you wrecked your car!" + "\n" + "Your final score: " + score;
+                        gameOver.text = "Oh no... you wrecked your car!" + "\n" + "Your final score: " + score + " road blocks passed!";
                         gameOverScene.visible = true;
                         restartButton.style.display = "block";
                     }
@@ -413,6 +413,8 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
     </script>
+    <hr> 
+    <p>Images (car, road blocks, heart, lines) taken from google images</p>
 </body>
     
 </html>
