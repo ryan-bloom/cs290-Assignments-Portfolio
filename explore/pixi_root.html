@@ -47,7 +47,7 @@
         
         //Initialize global variables
         var car, blocks_array, block, state, style, score, 
-            lives, scDisplay, lvDisplay, gameOver, roadlines;
+            lives, scDisplay, lvDisplay, gameOver, roadlines, life;
         
         //Runs on all loaded images
         var startButton = document.getElementById("start");
@@ -59,7 +59,8 @@
             //load an image and run 'setup' function
             loader.add(["Sprites/car.png",
                         "Sprites/obstacle.png",
-                        "Sprites/roadLine.png"]).load(setup);
+                        "Sprites/roadLine.png",
+                        "Sprites/extraLife.png"]).load(setup);
         }
         
         //Once the user loses all of his/her lives, this button is made visible
@@ -130,6 +131,13 @@
                 gameScene.addChild(block);
                 //app.ticker.add(delta => gameLoop(delta));
             }
+            
+            //Create the extra life icon/power up
+            life = new Sprite(resources["Sprites/extraLife.png"].texture);
+            life.width = 20;
+            life.height = 20;
+            life.position.set(246, -100);
+            gameScene.addChild(life);
             
             //Add the car to the screen for user to use
             car = new Sprite(resources["Sprites/car.png"].texture);
@@ -356,6 +364,38 @@
                     }*/
                 }
             };
+            
+            
+            //Add the ability to win extra lives!
+            if(score < 10){
+                life.y += 2;
+            }
+            else if(score < 35){
+                life.y += 3;
+            }
+            else if(score < 65){
+                life.y += 5;
+            }
+            else if(score < 100){
+                life.y += 7;
+            }
+            else{
+                life.y += 10;
+            }
+            if(life.y>512){
+                life.y = -750;
+                life.x = randomInt(0,490);
+            }
+            if(collision(life,car)){
+                life.y = -1500;
+                life.x = randomInt(0,490);
+                lives += 1;
+                lvDisplay.text = "Lives Left: " + lives;   
+            }
+            
+            
+            
+            
             car.x += car.vx
             //Allow the car to loop through the wall and appear on other side
             if(car.x <= 0){
