@@ -1,0 +1,85 @@
+{
+  "activeUser" : "",
+  "createSchedDisp" : "none",
+  "pubSchools" : [ [ "Duke", "Harvard", "Yale" ], [ "Duke", "Harvard", "Yale" ], [ "Duke", "Columbia", "Dartmouth", "UPenn", "University of Southern California" ], [ "Duke" ] ],
+  "publicTrips" : [ [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1, "saigesunier", 1 ], [ "Sat May 05 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Sun May 06 2018 20:00:00 GMT-0400 (Eastern Daylight Time): University of Southern California\n", "Mon May 07 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Tue May 08 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Columbia\n", "Wed May 09 2018 20:00:00 GMT-0400 (Eastern Daylight Time): UPenn\n", "Thu May 10 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Dartmouth\n", "saigesunier", "0", "ryan", 1 ], [ "Tue May 22 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Wed May 23 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Thu May 24 2018 20:00:00 GMT-0400 (EDT): Duke\n", "danny", "0" ] ],
+  "schedDex" : 0,
+  "schoolDat" : {
+    "schools" : [ {
+      "location" : [ 36, -78.93 ],
+      "name" : "Duke",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 42.37, -71.11 ],
+      "name" : "Harvard",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 41.32, -72.92 ],
+      "name" : "Yale",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 40.34, -74.65 ],
+      "name" : "Princeton",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 41.83, -71.4 ],
+      "name" : "Brown",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 42.36, -71.09 ],
+      "name" : "MIT",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 39.95, -75.19 ],
+      "name" : "UPenn",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 43.7, -72.29 ],
+      "name" : "Dartmouth",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 42.71, -73.2 ],
+      "name" : "Williams",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    }, {
+      "location" : [ 40.81, -73.96 ],
+      "name" : "Columbia",
+      "tours" : [ 1, 1, 1, 1, 1, 1, 1 ]
+    } ]
+  },
+  "signInDisp" : "block",
+  "userIndex" : 0,
+  "users" : [ {
+    "password" : "AdminPassword",
+    "schoolsCor" : [ [ "Duke", "Harvard", "Yale" ], [ "Duke", "Harvard", "Yale" ], [ "Harvard", "Yale" ], [ "Harvard", "Yale" ], [ "Duke", "Harvard" ], [ "Duke", "Columbia", "Dartmouth", "UPenn", "University of Southern California" ], [ "Duke" ] ],
+    "trips" : [ [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "saige", 1 ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1 ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1 ], [ "Sat May 05 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Sun May 06 2018 20:00:00 GMT-0400 (Eastern Daylight Time): University of Southern California\n", "Mon May 07 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Tue May 08 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Columbia\n", "Wed May 09 2018 20:00:00 GMT-0400 (Eastern Daylight Time): UPenn\n", "Thu May 10 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Dartmouth\n", "saigesunier", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1, "saigesunier", 1 ], [ "Sat May 05 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Sun May 06 2018 20:00:00 GMT-0400 (Eastern Daylight Time): University of Southern California\n", "Mon May 07 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Tue May 08 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Columbia\n", "Wed May 09 2018 20:00:00 GMT-0400 (Eastern Daylight Time): UPenn\n", "Thu May 10 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Dartmouth\n", "saigesunier", "0", "ryan", 1 ], [ "Tue May 22 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Wed May 23 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Thu May 24 2018 20:00:00 GMT-0400 (EDT): Duke\n", "danny", "0" ] ],
+    "username" : "admin"
+  }, {
+    "password" : "",
+    "username" : "guest"
+  }, {
+    "password" : "222222",
+    "schoolsCor" : [ [ "Duke", "Harvard", "Yale" ], [ "Duke", "Harvard", "Yale" ] ],
+    "trips" : [ [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0" ] ],
+    "username" : "ryan"
+  }, {
+    "password" : "222222",
+    "schoolsCor" : [ [ "Harvard", "Yale" ], [ "Harvard", "Yale" ] ],
+    "trips" : [ [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "saige", 1 ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1 ] ],
+    "username" : "saige"
+  }, {
+    "password" : "aaaaaa",
+    "schoolsCor" : [ [ "Duke", "Harvard" ], [ "Duke" ] ],
+    "trips" : [ [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1 ], [ "Tue May 22 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Wed May 23 2018 20:00:00 GMT-0400 (EDT): No Tour\n", "Thu May 24 2018 20:00:00 GMT-0400 (EDT): Duke\n", "danny", "0" ] ],
+    "username" : "danny"
+  }, {
+    "password" : "poopscoop",
+    "schoolsCor" : [ [ "Duke", "Columbia", "Dartmouth", "UPenn", "University of Southern California" ] ],
+    "trips" : [ [ "Sat May 05 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Sun May 06 2018 20:00:00 GMT-0400 (Eastern Daylight Time): University of Southern California\n", "Mon May 07 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Tue May 08 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Columbia\n", "Wed May 09 2018 20:00:00 GMT-0400 (Eastern Daylight Time): UPenn\n", "Thu May 10 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Dartmouth\n", "saigesunier", "0" ], [ "Tue May 01 2018 20:00:00 GMT-0400 (Eastern Daylight Time): No Tour\n", "Wed May 02 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Harvard\n", "Thu May 03 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Duke\n", "Fri May 04 2018 20:00:00 GMT-0400 (Eastern Daylight Time): Yale\n", "ryan", "0", "saige", 1, "danny", 1, "saigesunier", 1 ] ],
+    "username" : "saigesunier"
+  }, {
+    "password" : "valerie",
+    "username" : "valslepak"
+  } ],
+  "viewSchedDisp" : "none"
+}
