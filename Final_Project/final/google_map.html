@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Map</title>    
+</head>
+<body onload="initialize()">
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgxY6DqJ4TxnRfKjlZR8SfLSQRtOSTxEU&libraries=places"></script>
+<script src="google_mapJS.js"></script>
+<link rel="stylesheet" href="style.css">
+    
+<h1 class="header" id="gMap" style="text-align:center">Your ConnecTour School Map!</h1> <br>
+
+<p style="text-align:center;width:50%;position:relative;left:25%">Search for your schools to see their location! (You can view multiple locations on the same map, so search for as many as you want!)</p>
+    
+<input id="pac-input" class="controls" type="text" placeholder="Search Box" style="align-content: center;width:50%">
+    
+<div id="mapContainer">
+    <div id="googleMap" style="width:50%;height:400px;position:relative;left:25%;"></div>
+</div>
+      
+</body>
+</html>

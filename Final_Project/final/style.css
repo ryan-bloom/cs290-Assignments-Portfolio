@@ -1,0 +1,147 @@
+#finalapp {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #17425b;
+  margin-top: 60px;
+}
+
+#gMap {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}
+
+body{
+    background-color: white;
+}
+
+.option1{
+    display: block;
+    text-align: left;
+}
+
+.new_school{
+    display: block;
+    margin-top: 100px;
+}
+
+.your_trips{
+    display: block;
+    border: solid;
+}
+.other_trips{
+    display: block;
+    border: solid;
+}
+
+#logout{
+    display: block;
+    float: right;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.users_input{
+    display: block;
+    margin: auto;
+    width: 33%;
+    border: solid;
+}
+
+/*    //Align buttons*/
+button{
+    margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: red;
+}
+
+h3{
+    display: block;
+    text-align: center;
+} 
+/*    //Align sub-headings to the left*/
+.sub1{
+    display: block;
+    text-align: left;
+    text-decoration: underline;
+}
+.header{
+    padding: 30px;
+}
+/*    //Align div containing all date selector info*/
+.date_select_div{
+    display: block;
+    padding-bottom: 20px;
+}
+
+/*    //Align date selectors indented under their heading*/
+#date_selectors{
+    display: block;
+    text-align: left;
+    padding-left: 5%;
+}
+
+/*    //Align school selector div*/
+.schoolDropDown{
+    display: block;
+    padding-left: 5%;
+}
+/*    //Align selcted schools div*/
+.your_schools{
+    display: block;
+    margin-top: -115px;
+}
+/*    //Align schools selected display*/
+#your_schools_title{
+    display: block;
+    text-decoration: underline;
+}
+
+#your_schools_info{
+    display: block;
+}
+
+/*    //Display the current user*/
+#currUser{
+    display: block;
+    text-align: right;
+    //margin-top: -70px;
+    //margin-left: 400px;
+}
+
+/*    //Align select input to the left*/
+select{
+    display: block;
+    margin-left: 0px;
+    //margin-bottom: 100px;
+}
+
+.public_private_div{
+    display: block;
+    margin-top: 40px;
+}
+
+/*    //Align public vs. private div box*/
+.radioButtons{
+    display: block;
+    //margin-top: -40px;
+    margin-left: -400px;
+}

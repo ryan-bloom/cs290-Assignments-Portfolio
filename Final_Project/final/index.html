@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Daniel Bernt and Ryan Bloom">
+    <!-- stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- libraries neded for this page -->
+    
+    <!--<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.5/vuefire.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- support for this page -->
+    <link rel="stylesheet" href="style.css">
+    <script src="final.js" async></script>
+    <title>Final App</title>
+</head>
+<body>
+    <div id="finalapp">
+        <div id="start_page_div">
+            <h1>Welcome to College ConnecTour!</h1> <br>
+            <h4>We make college visits stress-free!</h4>
+            <!--Sign in inputs for users that are already members-->
+            <div class="users_input" id="returning_sign_in">
+                <h3>Existing User Sign-In:</h3>
+                <input id="return_username_input" v-model="returnUsername" placeholder="Username"><br>
+                <input id="return_password_input" type="password" v-model="returnPassword" placeholder="Password"><br>
+                <button id="sign_in" @click="signIn(returnUsername, returnPassword)">Sign-In!</button>
+            </div>
+            <!--Sign up inputs for users that want to be members-->
+            <div class="users_input" id="new_user_create">
+                <h3>New User Sign-Up:</h3>
+                <input id="new_username_input" v-model="newUsername" placeholder="New Username"><br>
+                <input id="new_password_input" type="password" v-model="newPassword" placeholder="Input Password"><br>
+                <input id="confirm_password_input" type="password" v-model="confirmPassword" placeholder="Confirm Password"><br>
+                <button id="sign_up" @click="signUp(newUsername, newPassword, confirmPassword)">Sign-Up!</button>
+            </div>
+            <!--If a user wishes to not be a member, they can continue as guest-->
+            <div class="users_input" id="guest_access">
+                <h3>Don't want to be a user?</h3>
+                <button id="guest_button" @click="guestAccess()">Continue as Guest!</button>
+            </div>
+        </div>
+        <div id="schedCreateContainer" style="display:none">
+            <div id="create_schedule_page">
+                <div class="header">
+                    <h1>College ConnecTour</h1>
+                    <p id="currUser">User: {{users[userIndex].username}}</p>
+                    <button id="logout" @click="logout()">Logout</button>
+                </div>
+                <p>Select the dates of your trip and the schools that you wish to visit. 
+                Then simply click the button at the bottom of the page to view your potential schedules!</p>
+                <hr>
+                <div id="schedule_creator">
+                    <h3>Plan Your Trip!</h3>
+                    <div class="date_select_div col-12">
+                        <h4 class="sub1">Select your dates: </h4>
+                        <p id="date_selectors">
+                            Start Date: <input id="start_date" type="date" v-model="startDate" @change="startDateConvert(startDate)"> 
+                            End Date: <input id="end_date" type="date" v-model="endDate" @change="endDateConvert(endDate)">
+                        </p>
+                    </div>
+                    <div class="school_select_div col-12">
+                        <h4 class="sub1">Select your schools: </h4>
+                        <div class="schoolDropDown">
+                            <select multiple class="school_selector_input">
+                                <option disabled value="">Select Your Schools!</option>
+                                <option class="schoolSelectOption" v-for="school in schoolDat.schools" value=school @click="addSchool(school.name)">
+                                    {{school.name}}
+                                </option>    
+                            </select>
+                        </div>
+                        <div class="your_schools">
+                            <h4 id="your_schools_title">Your Selected Schools:</h4>
+                            <p id="your_schools_info" v-for="name in mySchools">
+                                <button class="remove_school" @click="remove(name)">&#x2718</button>
+                                {{name}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="new_school col-12">
+                        <h4 class="sub1">Don't see a school you want to visit? Add one!</h4>
+                        <p style="width: 50%" class="option1">Click <a href="https://www.google.com/maps" target="_blank">here</a> to search for your school's latitude and longitude. Just type in the school name, right click the map, and select the "what's here?" option to see to latitude and longitude!</p>
+                        <p class="option1">School Name: <input id="new_school" v-model="newSchoolName" placeholder="School Name"></p>
+                        <p class="option1">School Latitude: <input v-model="newLat" placeholder="Latitude">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <p class="option1">School Longitude: <input v-model="newLon" placeholder="Longitude"></p>
+                        <button class="option1" @click="newSchool(newSchoolName,newLat,newLon)">Add your school!</button>
+                    </div>
+                    <div class="col-12" id="admin_check" style="display:none">
+                        <h4 class="sub1">Edit User-Entered Data (for Admin only)</h4>
+                        <p class="option1">If a user has entered an incorrect/joke school name, click it from the list below to remove it from the site's data.</p>
+                        <div class="schoolDropDown">
+                            <select class="school_selector_input" id="chooseSchool" v-model = "schoolRemove">
+                                <option disabled value="">Edit Schools</option>
+                                <option class="schoolSelectOption" v-for="school in schoolDat.schools">
+                                    {{school.name}}
+                                </option>  
+                            </select>
+                            <button class="options1" @click="editSchool(schoolRemove)">Remove Selected School</button>
+                        </div>
+                    </div>
+                    <div class="public_private_div col-12">
+                        <h4 class="sub1">Make Your Schedule:</h4>
+                        <div class="radioButtons">
+                            <input class="pubRadio" type="radio" name="pubOrPriv" value=0 v-model ="pubAccess"> Public?
+                            <br>
+                            <input class="pubRadio" type="radio" name="pubOrPriv" value=1 v-model ="pubAccess" selected = true> Private?
+                        </div>
+                    </div>
+                    <br>
+                    <button class="create_schedules" @click="createSchedule(mySchools, startDate, endDate)">Create Your Schedules!</button>
+                </div>
+                <hr>
+
+                <div id="user_schedules">
+                    <h3>View Your Schedules!</h3>
+                    <div class="your_schedules row">
+                        <div class="your_trips col-4" v-for="trip in users[userIndex].trips">
+                            <p>
+                                Trip Length: {{trip.length -2 }} day(s) <br>
+                                Schools: {{users[userIndex].schoolsCor[users[userIndex].trips.indexOf(trip)]}}
+                            </p>
+                            <button id="view_old_schedules" @click="viewOldSched(users[userIndex].trips.indexOf(trip), users[userIndex].trips)">View Now</button>
+                            <button id="remove_saved" @click="removeSaved(users[userIndex].trips.indexOf(trip), userIndex)">Remove</button>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+                <div id="public_schedules">
+                    <h3>View Public Schedules!</h3>
+                    <div class="pub_scheds row">
+                        <div class="other_trips col-4" v-for="trip in publicTrips">
+                            <p>
+                                Trip Length: {{trip.length - 1}} day(s) <br>
+                                Schools: {{pubSchools[publicTrips.indexOf(trip)]}}
+                            </p>
+                            <button id="view_old_pub_schedules" @click="viewPubTrip(publicTrips.indexOf(trip), publicTrips)">View Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div id="schedViewContainer" style="display:none">
+            <div class="header">
+                <h1>College ConnecTour</h1>
+                <p id="currUser">User: {{users[userIndex].username}}</p>
+                <button id="logout" @click="logout()">Logout</button>
+            </div>
+            <hr>
+            <div id="scheduleView" class="col-12">
+                <h3 id="scheduleViewLeft">Schedule number: {{schedDex+1}} of {{schedDisplay.length}}</h3>
+                <div id="schedDisp" v-for="day in schedDisplay[schedDex]" class="col-12">
+                    {{day}}
+                </div>
+                <p style="text-align:center">Click <a href="google_map.html" target="_blank">here</a> to view a map of the schools you will be visiting!</p>
+                <button id="prevSched" @click="prevSch(schedDex)">prev</button>
+                <button id="nextSched" @click="nextSch(schedDex)">next</button>
+                <br>
+                <button id="fav" @click=favorite(schedDisplay[schedDex])>Save This Schedule!</button>
+                <br>
+                <button id="moreSched" @click="createSchedule(mySchools, startDate, endDate)">
+                    Want a different set of schedules?
+                </button> <br>
+                <button id="newSched" @click="newTrip()">Return to Plan Another Trip!</button>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{
+    "schools":[
+        
+        {
+            "name": "Duke",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 36.00, -78.93 ]
+        },
+        {
+            "name": "Harvard",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 42.37, -71.11 ]
+        },
+        {
+            "name": "Yale",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 41.32, -72.92 ]
+        },
+        {
+            "name": "Princeton",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 40.34, -74.65 ]
+        },
+        {
+            "name": "Brown",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 41.83, -71.40 ]
+        },
+        {
+            "name": "MIT",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 42.36, -71.09 ]
+        },
+        {
+            "name": "UPenn",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 39.95, -75.19 ]
+        },
+        {
+            "name": "Dartmouth",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 43.70, -72.29 ]
+        },
+        {
+            "name": "Williams",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 42.71, -73.20 ]
+        },
+        {
+            "name": "Columbia",
+            "tours":[1,1,1,1,1,1,1],
+            "location": [ 40.81, -73.96 ]
+        }
+    ]
+}
